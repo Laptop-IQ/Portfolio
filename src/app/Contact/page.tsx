@@ -78,7 +78,7 @@ export default function ContactPage() {
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg p-8 lg:p-10 shadow-2xl">
           <h2 className="text-4xl lg:text-5xl font-semibold">
             Let’s build something{" "}
-            <span className="text-[var(--primary-color)]">great</span>
+            <span className="text-(--primary-color)">great</span>
           </h2>
 
           <p className="text-gray-400 mt-4 text-sm leading-relaxed">
@@ -150,7 +150,7 @@ export default function ContactPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 rounded-lg font-medium bg-[var(--primary-color)] text-black hover:scale-[1.02] transition"
+              className="w-full py-3 rounded-lg font-medium bg-(--primary-color) text-black hover:scale-[1.02] transition"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>
@@ -189,7 +189,7 @@ export default function ContactPage() {
               key={i}
               className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 hover:scale-[1.02] transition"
             >
-              <div className="text-[var(--primary-color)] text-xl">
+              <div className="text-(--primary-color) text-xl">
                 {item.icon}
               </div>
 

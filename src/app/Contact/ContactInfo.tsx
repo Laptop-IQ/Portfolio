@@ -4,7 +4,7 @@ export default function ContactInfo() {
   return (
     <div className="flex flex-col gap-6 justify-center">
       <h3 className="text-3xl lg:text-4xl font-semibold tracking-tight">
-        Contact <span className="text-[var(--primary-color)]">Information</span>
+        Contact <span className="text-(--primary-color)">Information</span>
       </h3>
 
       <Info icon={<Mail />} title="Email" value="sk9414681@gmail.com" />
@@ -44,7 +44,7 @@ function Info({
           p-3 rounded-xl
           bg-black/30
           border border-white/10
-          text-[var(--primary-color)]
+          text-(--primary-color)
           transition-all duration-300
           group-hover:text-white
           group-hover:border-white/20
@@ -61,7 +61,7 @@ function Info({
       </div>
 
       {/* subtle glow line */}
-      <div className="ml-auto w-1 h-8 rounded-lg bg-[var(--primary-color)]/0 group-hover:bg-[var(--primary-color)] transition-all duration-300" />
+      <div className="ml-auto w-1 h-8 rounded-lg bg-(--primary-color)/0 group-hover:bg-(--primary-color) transition-all duration-300" />
     </div>
   );
 }

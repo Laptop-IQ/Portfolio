@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaJs, FaReact, FaNodeJs, FaBootstrap } from "react-icons/fa";
 import { SiHtml5, SiCss3, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
-const ease = [0.25, 1, 0.5, 1];
+const ease: [number, number, number, number] = [0.25, 1, 0.5, 1];
 
 export default function Resume() {
   const [activeTab, setActiveTab] = useState("Experience");
@@ -87,7 +87,7 @@ useEffect(() => {
           transition={{ duration: 0.7, ease }}
         >
           <h2 className="text-5xl font-semibold">
-            Why hire <span className="text-[var(--primary-color)]">me?</span>
+            Why hire <span className="text-(--primary-color)">me?</span>
           </h2>
 
           <p className="text-gray-400 mt-6 text-sm">
@@ -109,7 +109,7 @@ useEffect(() => {
                 }`}
               >
                 {activeTab === tab && (
-                  <span className="absolute left-0 top-0 h-full w-1 bg-[var(--primary-color)] rounded-r" />
+                  <span className="absolute left-0 top-0 h-full w-1 bg-(--primary-color) rounded-r" />
                 )}
                 {tab}
               </motion.button>
@@ -118,7 +118,7 @@ useEffect(() => {
         </motion.div>
 
         {/* RIGHT — FIXED STABLE BOX (NO JUMP EVER) */}
-        <div className="lg:col-span-2 relative h-[450px] overflow-hidden">
+        <div className="lg:col-span-2 relative h-112.5 overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -140,7 +140,7 @@ useEffect(() => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.1 }}
                     >
-                      <p className="text-[var(--primary-color)] text-sm">
+                      <p className="text-(--primary-color) text-sm">
                         {item.date}
                       </p>
                       <h4 className="text-xl mt-1">{item.role}</h4>
@@ -158,7 +158,7 @@ useEffect(() => {
                       key={i}
                       className="p-6 rounded-xl bg-white/5 border border-white/10"
                     >
-                      <p className="text-[var(--primary-color)] text-sm">
+                      <p className="text-(--primary-color) text-sm">
                         {item.year}
                       </p>
                       <h4 className="text-xl mt-2">{item.degree}</h4>

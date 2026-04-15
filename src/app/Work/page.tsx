@@ -5,8 +5,29 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaReact, FaJsSquare, FaBootstrap } from "react-icons/fa";
 import { SiTailwindcss, SiFigma, SiFramer } from "react-icons/si";
+import { IconType } from "react-icons";
 
-const projects = [
+/* ---------------- TYPES ---------------- */
+
+type Tech =
+  | "react"
+  | "tailwind"
+  | "javascript"
+  | "bootstrap"
+  | "figma"
+  | "framer";
+
+type Project = {
+  id: string;
+  title: string;
+  desc: string;
+  img: string;
+  tech: Tech[];
+};
+
+/* ---------------- DATA ---------------- */
+
+const projects: Project[] = [
   {
     id: "01",
     title: "React JS Project",
@@ -30,7 +51,9 @@ const projects = [
   },
 ];
 
-const getIcon = (tech) => {
+/* ---------------- ICON MAPPER ---------------- */
+
+const getIcon = (tech: Tech): IconType | null => {
   switch (tech) {
     case "react":
       return FaReact;
@@ -48,6 +71,8 @@ const getIcon = (tech) => {
       return null;
   }
 };
+
+/* ---------------- COMPONENT ---------------- */
 
 export default function Work() {
   const [index, setIndex] = useState(0);
@@ -110,7 +135,7 @@ export default function Work() {
             </div>
           </div>
 
-          {/* FIXED BUTTON AREA (NEVER MOVES) */}
+          {/* BUTTONS */}
           <div className="flex gap-4 mt-auto pt-6">
             <button
               onClick={prev}

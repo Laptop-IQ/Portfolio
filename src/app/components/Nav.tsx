@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode} from "react";
 import {
   motion,
   AnimatePresence,
@@ -10,6 +10,7 @@ import {
   useSpring,
   useMotionValue,
   useTransform,
+  MotionValue,
 } from "framer-motion";
 
 export default function Nav() {
@@ -180,7 +181,13 @@ export default function Nav() {
 }
 
 /* 🧲 Dock Item */
-function DockItem({ children, mouseX, index }) {
+type DockItemProps = {
+  children: ReactNode;
+  mouseX: MotionValue<number>;
+  index: number;
+};
+
+function DockItem({ children, mouseX, index }: DockItemProps) {
   const distance = 100;
 
   const scale = useTransform(mouseX, (val) => {
