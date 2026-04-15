@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+@import "swiper/css";
+@import "swiper/css/navigation";
+
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'remixicon/fonts/remixicon.css';
+
+
+:root{
+  --primary-color: #FC4100 !important;
+  --primary-light-1: #FC410010;
+  --primary-light-2: #FC410010;
+  --hero-image-from: #f8b4741a;
+  --hero-image-to: #ff4c1f0c;
+  --black-color: #000;
+  --white-color: #fff;
+  --text-color: #32455e;
+
+--transition-regular:0.3s;
+--transition-slow:0.3s;
+
+}
+@layer utilities {
+.font-sora {
+  font-family: var(--font-sora), sans-serif;
+}
+.font-unbounded {
+  font-family: var(--font-unbounded), cursive;
+}
+
+
+}
+
+
+
+body {
+  background: #1c1b21;
+  color: var(--white-color);
+  overflow:auto !important;
+}
+
+/* Navbar */
+.active-link{
+color: var(--primary-color);
+
+}
+
+.active-link:after,
+.nav-menu a:after,
+.menu li a:after{
+content: '';
+position:absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+height: 2px;
+background-color: var(--primary-color);
+transform: var(--transition-regular);
+}
+
+.nav-menu a:after,
+.menu li a:after{
+  opacity: 0;
+}
+
+.nav-menu a:hover:after,
+.menu li a:hover:after{
+  opacity: 1;
+}
+
+.menu li a{
+  padding-bottom: 10px;
+}
+.active-link:after{
+  opacity: 1 !important;
+}
+
+
+@media (max-width: 991px) {
+  body {
+    overflow-x: hidden;
+    overflow-y:auto;
+  }
+}
+
+/* Header */
+.hero-image {
+  position: relative;
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0) 48%,
+      rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+}
+
+.hero-social i {
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-regular);
+  border-radius: 50%;
+}
+
+.hero-social i:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  transform: translateY(-10px);
+}
+/* Services  */
+.stroke-text{
+  -webkit-text-stroke: 1px var(--white-color);
+  color: transparent;
+  transition: var(--transition-regular);
+}
+
+.service-card:hover .stroke-text {
+  -webkit-text-stroke: 1px var(--primary-color);
+  color: transparent;
+}
+
+.custom-scollbar::-webkit-scrollbar-track{
+  background: transparent;
+}
+.custom-scollbar::-webkit-scrollbar-thumb{
+  background-color: var(--primary-color);
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.custom-scollbar::-webkit-scrollbar-thumb:hover{
+  background-color: var(--primary-color);
+}
+
+/* Contact */
+.contact-col span{
+  transition: var(--transition-regular) ;
+  cursor: pointer;
+}
+
+.contact-col:hover span{
+  border-color: var(--white-color);
+  cursor: pointer;
+}
+
+.work-content h2 {
+  opacity: 100;
+  animation: Anim-bottom var(--transition-regular) 1.4s forwards linear;
+}
+
+.work-content h3 {
+  opacity: 100;
+  animation: Anim-bottom var(--transition-regular) 1.2s forwards linear;
+}
+
+.work-content p {
+  opacity: 100;
+  animation: Anim-bottom var(--transition-regular) 1s forwards linear;
+}
+
+.work-icons {
+  opacity: 100;
+  animation: Anim-bottom var(--transition-regular) 0.8s forwards linear;
+}
+
+.work-share {
+  opacity:100;
+  animation: Anim-bottom var(--transition-regular) 0.6s forwards linear;
+}
+
+.work-image p {
+  opacity: 100;
+  animation: Anim-bottom var(--transition-regular) 0.3s forwards linear;
+}
+
+@keyframes Anim-bottom {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+/* 🧊 Liquid Glass (Vision Pro style) */
+.liquid-glass {
+  position: relative;
+  border-radius: 20px;
+  backdrop-filter: blur(22px) saturate(180%);
+  -webkit-backdrop-filter: blur(22px) saturate(180%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* 🌊 Light refraction layer */
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.15));
+  opacity: 0.35;
+  animation: liquidFlow 8s linear infinite;
+}
+
+/* ✨ highlight */
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%,
+      rgba(255, 255, 255, 0.25),
+      transparent 60%);
+  opacity: 0.25;
+}
+
+@keyframes liquidFlow {
+  0% {
+    transform: translateX(-30%);
+  }
+
+  100% {
+    transform: translateX(30%);
+  }
+}
+
+/* 🌈 Optional Glow Border */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg,
+      #ff00cc,
+      #3333ff,
+      #00ffcc,
+      #ffcc00,
+      #ff00cc);
+  background-size: 300% 300%;
+  animation: glowMove 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes glowMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+html {
+  overflow-y: scroll;
+  /* always reserve scrollbar space */
+}
+
+body {
+  overflow-x: hidden;
+}
