@@ -65,7 +65,7 @@ useEffect(() => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease }}
-      className="relative px-6 lg:px-24 py-32 text-white bg-black overflow-x-hidden"
+      className="relative px-6 lg:px-24 py-20 min-h-screen text-white bg-black overflow-hidden"
     >
       {/* Cursor spotlight */}
       <div
@@ -79,14 +79,14 @@ useEffect(() => {
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,94,0,0.1),transparent_60%)]" />
 
-      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-3 gap-20 items-start">
+      <div className="relative z-10 max-w-5xl mx-auto grid lg:grid-cols-3 gap-20 items-start">
         {/* LEFT */}
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease }}
         >
-          <h2 className="text-5xl font-semibold">
+          <h2 className="text-5xl font-semibold whitespace-nowrap">
             Why hire <span className="text-(--primary-color)">me?</span>
           </h2>
 
@@ -118,7 +118,7 @@ useEffect(() => {
         </motion.div>
 
         {/* RIGHT — FIXED STABLE BOX (NO JUMP EVER) */}
-        <div className="lg:col-span-2 relative h-112.5 overflow-hidden">
+        <div className="lg:col-span-2 relative min-h-[400px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}

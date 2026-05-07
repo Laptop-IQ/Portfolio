@@ -83,20 +83,20 @@ export default function Work() {
     setIndex((i) => (i - 1 + projects.length) % projects.length);
 
   return (
-    <section className="relative min-h-screen flex items-center py-32 px-6 lg:px-24 text-white bg-[#050505] overflow-hidden">
+    <section className="relative min-h-screen flex items-start pt-28 pb-20 px-6 lg:px-24 text-white bg-[#050505] overflow-hidden">
       {/* Glow background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,94,0,0.12),transparent_60%)]" />
 
-      <div className="relative max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
+      <div className="relative max-w-5xl mx-auto w-full grid lg:grid-cols-2 gap-20 items-center">
         {/* LEFT SIDE */}
-        <div className="relative h-[420px] flex flex-col justify-between">
+        <div className="relative h-105 flex flex-col justify-between">
           <div>
             <p className="text-xs tracking-[0.3em] text-gray-500 uppercase">
               Selected Work
             </p>
 
             {/* FIXED HEIGHT TITLE AREA */}
-            <div className="mt-6 min-h-[180px]">
+            <div className="mt-6 min-h-45">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={project.id}
@@ -123,7 +123,7 @@ export default function Work() {
                           className="flex items-center gap-2 text-sm text-gray-300"
                         >
                           {Icon && (
-                            <Icon className="text-[var(--primary-color)] text-lg" />
+                            <Icon className="text-(--primary-color) text-lg" />
                           )}
                           {t}
                         </div>
@@ -139,14 +139,14 @@ export default function Work() {
           <div className="flex gap-4 mt-auto pt-6">
             <button
               onClick={prev}
-              className="w-12 h-12 rounded-full border border-white/15 hover:border-[var(--primary-color)] transition flex items-center justify-center"
+              className="w-12 h-12 rounded-full border border-white/15 hover:border-(--primary-color) transition flex items-center justify-center"
             >
               ←
             </button>
 
             <button
               onClick={next}
-              className="w-12 h-12 rounded-full border border-white/15 hover:border-[var(--primary-color)] transition flex items-center justify-center"
+              className="w-12 h-12 rounded-full border border-white/15 hover:border-(--primary-color) transition flex items-center justify-center"
             >
               →
             </button>
@@ -154,9 +154,9 @@ export default function Work() {
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="relative flex justify-center min-h-[420px]">
+        <div className="relative flex justify-center min-h-105">
           {/* glow */}
-          <div className="absolute w-[420px] h-[420px] bg-[var(--primary-color)]/10 blur-3xl rounded-full" />
+          <div className="absolute w-105 h-105 bg-(--primary-color)/10 blur-3xl rounded-full" />
 
           <AnimatePresence mode="wait">
             <motion.div
@@ -165,12 +165,14 @@ export default function Work() {
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               exit={{ opacity: 0, scale: 0.95, rotate: 2 }}
               transition={{ duration: 0.5 }}
-              className="relative w-[320px] md:w-[450px] h-[260px] md:h-[320px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+              className="relative w-[320px] md:w-112.5 h-65 md:h-80 rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
             >
               <Image
                 src={project.img}
                 alt={project.title}
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, 450px"
                 className="object-cover"
               />
             </motion.div>

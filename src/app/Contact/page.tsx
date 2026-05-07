@@ -73,7 +73,7 @@ export default function ContactPage() {
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,94,0,0.12),transparent_55%)]" />
 
-      <div className="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-2 gap-16">
+      <div className="relative z-10 max-w-5xl mx-auto grid lg:grid-cols-2 gap-16">
         {/* ================= FORM ================= */}
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg p-8 lg:p-10 shadow-2xl">
           <h2 className="text-4xl lg:text-5xl font-semibold">

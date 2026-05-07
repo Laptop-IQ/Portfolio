@@ -118,7 +118,7 @@ export default function Header() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="lg:w-1/2 flex justify-center -right-20 relative"
+          className="hidden lg:flex lg:w-1/2 justify-center -right-20 relative"
         >
           {/* glow ring */}
           <div className="absolute w-105 h-105 rounded-full bg-(--primary-color)/10 blur-3xl" />
@@ -131,10 +131,9 @@ export default function Header() {
             <Image
               src="/Hero2.png"
               fill
-              alt="Hero"
-              loading="eager"
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
+              sizes="(max-width: 768px) 100vw, 1200px"
+              alt="Hero banner"
+              priority
             />
           </motion.div>
         </motion.div>

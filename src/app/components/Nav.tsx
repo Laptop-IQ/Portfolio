@@ -22,13 +22,36 @@ export default function Nav() {
   // 🧲 Motion value (FIXED)
   const mouseX = useMotionValue(-999);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/Services" },
-    { name: "Resume", href: "/Resume" },
-    { name: "Work", href: "/Work" },
-    { name: "Contact", href: "/Contact" },
-  ];
+ const navLinks = [
+   { name: "Home", id: "home" },
+   { name: "Services", id: "services" },
+   { name: "Resume", id: "resume" },
+   { name: "Work", id: "work" },
+   { name: "Contact", id: "contact" },
+ ];
+
+ const [activeSection, setActiveSection] = useState("home");
+
+ useEffect(() => {
+   const handleScroll = () => {
+     const sections = navLinks.map((link) => document.getElementById(link.id));
+
+     sections.forEach((section) => {
+       if (!section) return;
+
+       const rect = section.getBoundingClientRect();
+
+       if (rect.top <= 150 && rect.bottom >= 150) {
+         setActiveSection(section.id);
+       }
+     });
+   };
+
+   window.addEventListener("scroll", handleScroll);
+   handleScroll();
+
+   return () => window.removeEventListener("scroll", handleScroll);
+ }, []);
 
   // 📊 Scroll Progress
   const { scrollYProgress } = useScroll();
@@ -89,12 +112,16 @@ export default function Nav() {
               onMouseLeave={() => mouseX.set(-999)}
             >
               {navLinks.map((link, i) => {
-                const isActive = pathname === link.href;
+                const isActive = activeSection === link.id;
 
                 return (
                   <DockItem key={link.name} mouseX={mouseX} index={i}>
-                    <Link
-                      href={link.href}
+                    <button
+                      onClick={() => {
+                        document.getElementById(link.id)?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                      }}
                       className="relative px-4 py-2 text-sm font-medium text-white/80 hover:text-white"
                     >
                       {isActive && (
@@ -109,7 +136,7 @@ export default function Nav() {
                         />
                       )}
                       <span className="relative z-10">{link.name}</span>
-                    </Link>
+                    </button>
                   </DockItem>
                 );
               })}
@@ -145,22 +172,24 @@ export default function Nav() {
             >
               <div className="flex flex-col gap-4 mt-4">
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
+                  const isActive = activeSection === link.id;
 
                   return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={`text-base
-                      ${
-                        isActive
+                    <button
+                      onClick={() => {
+                        document.getElementById(link.id)?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                        setIsMenuOpen(false);
+                      }}
+                      className={`text-base ${
+                        activeSection === link.id
                           ? "text-white"
                           : "text-white/70 hover:text-white"
                       }`}
                     >
                       {link.name}
-                    </Link>
+                    </button>
                   );
                 })}
 

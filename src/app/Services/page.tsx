@@ -47,7 +47,7 @@ export default function Services() {
         viewport={{ once: true }}
         className="text-5xl md:text-7xl font-semibold mb-20"
       >
-        Selected <span className="text-[var(--primary-color)]">Work</span>
+        Selected <span className="text-(--primary-color)">Work</span>
       </motion.h2>
 
       <div className="flex flex-col gap-14">
@@ -70,11 +70,11 @@ export default function Services() {
 
                 <div className="flex items-center gap-6">
 
-                  <h3 className="text-6xl text-white/10 font-bold group-hover:text-[var(--primary-color)] transition">
+                  <h3 className="text-6xl text-white/10 font-bold group-hover:text-(--primary-color) transition">
                     {service.id}
                   </h3>
 
-                  <h2 className="text-3xl md:text-5xl font-semibold group-hover:text-[var(--primary-color)] transition leading-tight">
+                  <h2 className="text-3xl md:text-5xl font-semibold group-hover:text-(--primary-color) transition leading-tight">
                     {service.title}
                   </h2>
 
@@ -89,7 +89,7 @@ export default function Services() {
                   {service.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="text-sm px-4 py-1 rounded-full border border-white/10 text-gray-400 group-hover:border-[var(--primary-color)] group-hover:text-[var(--primary-color)] transition"
+                      className="text-sm px-4 py-1 rounded-full border border-white/10 text-gray-400 group-hover:border-(--primary-color) group-hover:text-(--primary-color) transition"
                     >
                       {t}
                     </span>
@@ -101,7 +101,7 @@ export default function Services() {
               {/* RIGHT ICON */}
               <div className="flex items-center">
 
-                <div className="w-16 h-16 flex items-center justify-center rounded-full border border-white/15 text-white/60 group-hover:text-[var(--primary-color)] group-hover:border-[var(--primary-color)] transition duration-500">
+                <div className="w-16 h-16 flex items-center justify-center rounded-full border border-white/15 text-white/60 group-hover:text-(--primary-color) group-hover:border-(--primary-color) transition duration-500">
                   <i className="bi bi-arrow-up-right text-2xl"></i>
                 </div>
 
@@ -113,7 +113,7 @@ export default function Services() {
             <div className="pointer-events-none absolute right-10 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition duration-500">
 
               {/* glow behind image */}
-              <div className="absolute inset-0 bg-[var(--primary-color)]/10 blur-2xl rounded-xl scale-110" />
+              <div className="absolute inset-0 bg-(--primary-color)/10 blur-2xl rounded-xl scale-110" />
 
               <img
                 src={service.img}
